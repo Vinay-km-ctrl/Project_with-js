@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RPS Arena</title>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+<main>
+  <header>
+    <h1>RPS Arena</h1>
+    <button id="sound" class="chip" type="button" aria-pressed="true">Sound on</button>
+  </header>
+
+  <div class="modes" role="group" aria-label="Game mode">
+    <button class="chip on" type="button" data-target="0">Endless</button>
+    <button class="chip" type="button" data-target="2">Best of 3</button>
+    <button class="chip" type="button" data-target="3">Best of 5</button>
+  </div>
+
+  <section class="board" aria-label="Score">
+    <div class="side you"><small>You</small><b id="s-you">0</b><div class="pips" id="p-you"></div></div>
+    <div class="mid"><small>Draws</small><b id="s-draw">0</b><small id="streak-label"></small></div>
+    <div class="side cpu"><small>Computer</small><b id="s-cpu">0</b><div class="pips" id="p-cpu"></div></div>
+  </section>
+
+  <section class="arena">
+    <div class="hand" id="h-you">✊</div>
+    <div class="call" id="call" aria-live="assertive">Ready?</div>
+    <div class="hand flip" id="h-cpu">✊</div>
+  </section>
+  <p id="result" class="result">Choose your move</p>
+
+  <div class="choices">
+    <button type="button" data-move="rock"><span>✊</span>Rock<small>R</small></button>
+    <button type="button" data-move="paper"><span>✋</span>Paper<small>P</small></button>
+    <button type="button" data-move="scissors"><span>✌️</span>Scissors<small>S</small></button>
+  </div>
+
+  <div class="foot">
+    <span>Best streak: <b id="best">0</b></span>
+    <button type="button" id="reset" class="link">Reset all</button>
+  </div>
+  <ol id="history" class="history"></ol>
+</main>
+
+<div class="overlay" id="over" hidden>
+  <div class="card">
+    <h2 id="over-title"></h2>
+    <p id="over-text"></p>
+    <button id="again" class="cta" type="button">Play again</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
